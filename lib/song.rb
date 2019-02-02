@@ -23,7 +23,10 @@ class Song
   end
 
   def self.create_by_name(name)
-    new(name).tap{|song| song.save}
+    song = self.new
+    song.name = name
+    @@all << song
+    song
   end
 
   def self.find_by_name(name)
