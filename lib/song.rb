@@ -30,11 +30,7 @@ class Song
   end
 
   def self.find_by_name(name)
-    @@all.find do |song|
-      if song.name == name
-        return song
-      end
-    end
+    self.all.detect {|song| song.name == name}
   end
 
   def self.find_or_create_by_name(looking_for)
